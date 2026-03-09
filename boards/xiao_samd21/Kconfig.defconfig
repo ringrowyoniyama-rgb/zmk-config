@@ -1,3 +1,0 @@
-config BOARD_XIAO_SAMD21
-    bool "Seeed XIAO SAMD21"
-    select SOC_SERIES_SAMD21
