@@ -17,7 +17,7 @@ jobs:
       - name: West Setup
         uses: zmkfirmware/zmk/actions/west-setup@main
 
-      - name: Build Firmware
+      - name: Build Firmware (XIAO SAMD21 + MyKeypad)
         uses: zmkfirmware/zmk/actions/build@main
         with:
           board: xiao_samd21
