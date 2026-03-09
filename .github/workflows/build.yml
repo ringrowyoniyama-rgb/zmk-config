@@ -8,3 +8,8 @@ on:
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      matrix: |
+        [
+          { "board": "xiao_samd21", "shield": "mykeypad" }
+        ]
