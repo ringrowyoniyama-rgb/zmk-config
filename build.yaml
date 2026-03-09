@@ -1,3 +1,3 @@
 include:
-  - board: xiao_samd21
+  - board: seeeduino_xiao
     shield: mykeypad
