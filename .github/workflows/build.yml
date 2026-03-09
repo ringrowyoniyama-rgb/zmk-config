@@ -7,18 +7,4 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: West Setup
-        uses: zmkfirmware/zmk/actions/west-setup@main
-
-      - name: Build Firmware (XIAO SAMD21 + MyKeypad)
-        uses: zmkfirmware/zmk/actions/build@main
-        with:
-          board: xiao_samd21
-          shield: mykeypad
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
