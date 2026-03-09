@@ -1,1 +1,3 @@
-
+include:
+  - board: xiao_samd21
+    shield: mykeypad
