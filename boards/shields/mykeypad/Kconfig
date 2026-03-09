@@ -1,2 +1,0 @@
-config SHIELD_MYKEYPAD
-    bool "My Custom Keypad (3x4 + Special)"
