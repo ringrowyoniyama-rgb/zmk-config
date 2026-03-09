@@ -1,1 +1,28 @@
+/dts-v1/;
+/include/ "samd21.dtsi"
 
+ / {
+    model = "Seeed XIAO SAMD21";
+    compatible = "seeed,xiao-samd21";
+
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+};
+
+&port {
+    status = "okay";
+};
+
+/* キー入力は GPIO0 として扱う */
+kscan0: kscan {
+    compatible = "zmk,kscan-gpio-matrix";
+    row-gpios = <&port 2 GPIO_ACTIVE_LOW>,
+                 <&port 4 GPIO_ACTIVE_LOW>,
+                 <&port 10 GPIO_ACTIVE_LOW>,
+                 <&port 11 GPIO_ACTIVE_LOW>;
+
+    col-gpios = <&port 8 GPIO_ACTIVE_HIGH>,
+                 <&port 9 GPIO_ACTIVE_HIGH>,
+                 <&port 6 GPIO_ACTIVE_HIGH>;
+};
