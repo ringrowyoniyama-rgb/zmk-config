@@ -1,1 +1,2 @@
-
+config SHIELD_MYKEYPAD
+    bool "My Custom Keypad"
