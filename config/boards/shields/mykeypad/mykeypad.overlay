@@ -20,7 +20,7 @@
                     <&porta 11 0>;
 
         /* 列: D4=PA08, D5=PA09, D6=PB08 */
-        col-gpios = <&porta  8 GPIO_PULL_UP>,
+        col-gpios = <&porta  8 0>,
                     <&porta  9 GPIO_PULL_UP>,
                     <&portb  8 GPIO_PULL_UP>;
 
