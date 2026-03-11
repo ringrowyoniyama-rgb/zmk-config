@@ -37,7 +37,6 @@
     kscan1: special_kscan {
         compatible = "zmk,kscan-gpio-direct";
         input-gpios = <&portb 9 GPIO_ACTIVE_LOW>;
-        debounce-ms = <5>;
     };
 
     /* special_kscan を使うkeymapを別途用意したい場合は、
