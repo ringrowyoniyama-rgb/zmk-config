@@ -14,15 +14,15 @@
         compatible = "zmk,kscan-gpio-matrix";
 
         /* 行: D0=PA02, D1=PA04, D2=PA10, D3=PA11 */
-        row-gpios = <&porta  2 GPIO_ACTIVE_LOW>,
-                    <&porta  4 GPIO_ACTIVE_LOW>,
-                    <&porta 10 GPIO_ACTIVE_LOW>,
-                    <&porta 11 GPIO_ACTIVE_LOW>;
+        row-gpios = <&porta  2 0>,
+                    <&porta  4 0>,
+                    <&porta 10 0>,
+                    <&porta 11 0>;
 
         /* 列: D4=PA08, D5=PA09, D6=PB08 */
-        col-gpios = <&porta  8 GPIO_ACTIVE_HIGH>,
-                    <&porta  9 GPIO_ACTIVE_HIGH>,
-                    <&portb  8 GPIO_ACTIVE_HIGH>;
+        col-gpios = <&porta  8 0>,
+                    <&porta  9 0>,
+                    <&portb  8 0>;
 
         /* 必須：ダイオードの向き（配線に合わせて row2col / col2row を選択） */
         diode-direction = "row2col";
@@ -34,10 +34,10 @@
     };
 
     /* もし単発の“直結GPIOキー”も使うなら（任意） */
-    kscan1: special_kscan {
-        compatible = "zmk,kscan-gpio-direct";
-        input-gpios = <&portb 9 GPIO_ACTIVE_LOW>;
-    };
+    //kscan1: special_kscan {
+    //    compatible = "zmk,kscan-gpio-direct";
+    //    input-gpios = <&portb 9 GPIO_ACTIVE_LOW>;
+    //};
 
     /* special_kscan を使うkeymapを別途用意したい場合は、
        keymapファイル側で `kscan = <&kscan1>;` を持つレイヤを定義します */
