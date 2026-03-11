@@ -25,7 +25,7 @@
                     <&portb  8 GPIO_PULL_UP>;
 
         /* 必須：ダイオードの向き（配線に合わせて row2col / col2row を選択） */
-        diode-direction = "col2row";
+        diode-direction = "row2col";
 
         /* 任意：スキャン周期/デバウンス */
         // polling-interval-ms = <20>;
