@@ -17,17 +17,6 @@
                     <&portb 8 (GPIO_ACTIVE_HIGH)>;
     };
 
-    /* キーマップ（例：テンキー + Enter）*/
-    keymap {
-        compatible = "zmk,keymap";
-        bindings = <
-            &kp N1   &kp N2   &kp N3
-            &kp N4   &kp N5   &kp N6
-            &kp N7   &kp N8   &kp N9
-            &kp N0   &none    &kp ENTER
-        >;
-    };
-
     /* 特殊キー（D7=PB09 → スイッチ → GND）
      * 直接 GPIO を読む“ダイレクト”スキャンを別インスタンスで扱うやり方が分かりやすい。
      * ZMK には kscan-gpio-direct ドライバがあり（※）、単発キーを定義できます。
