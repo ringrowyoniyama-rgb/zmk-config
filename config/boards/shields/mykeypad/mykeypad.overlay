@@ -1,1 +1,47 @@
+/ {
+    compatible = "zmk,keyboard-shield";
 
+    /* 行列スキャン（GPIO Matrix） */
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+
+        /* 行: D0=PA02, D1=PA04, D2=PA10, D3=PA11 */
+        row-gpios = <&porta 2 (GPIO_ACTIVE_LOW)>,
+                    <&porta 4 (GPIO_ACTIVE_LOW)>,
+                    <&porta 10 (GPIO_ACTIVE_LOW)>,
+                    <&porta 11 (GPIO_ACTIVE_LOW)>;
+
+        /* 列: D4=PA08, D5=PA09, D6=PB08 */
+        col-gpios = <&porta 8 (GPIO_ACTIVE_HIGH)>,
+                    <&porta 9 (GPIO_ACTIVE_HIGH)>,
+                    <&portb 8 (GPIO_ACTIVE_HIGH)>;
+    };
+
+    /* キーマップ（例：テンキー + Enter）*/
+    keymap {
+        compatible = "zmk,keymap";
+        bindings = <
+            &kp N1   &kp N2   &kp N3
+            &kp N4   &kp N5   &kp N6
+            &kp N7   &kp N8   &kp N9
+            &kp N0   &none    &kp ENTER
+        >;
+    };
+
+    /* 特殊キー（D7=PB09 → スイッチ → GND）
+     * 直接 GPIO を読む“ダイレクト”スキャンを別インスタンスで扱うやり方が分かりやすい。
+     * ZMK には kscan-gpio-direct ドライバがあり（※）、単発キーを定義できます。
+     */
+    kscan1: special_kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&portb 9 (GPIO_ACTIVE_LOW)>;
+        debounce-ms = <5>;
+    };
+
+    /* 特殊キーのバインディング（例：レイヤー切替やマクロにしても良い） */
+    special_keymap {
+        compatible = "zmk,keymap";
+        bindings = <&kp KP_DOT>;  /* 例: 小数点/任意の機能に変更可 */
+        kscan = <&kscan1>;
+    };
+};
