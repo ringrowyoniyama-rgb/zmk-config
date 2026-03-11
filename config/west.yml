@@ -1,1 +1,16 @@
+# zmk-config/config/west.yml
+manifest:
+  defaults:
+    remote: zmkfirmware
+    revision: v0.3        # ← 安定版に固定（推奨）。mainにするなら 'main'
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
 
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      import: app/west.yml   # ZMK側の依存（Zephyr等）を取り込む
+
+  self:
+    path: config             # 「このリポジトリは workspace の config に相当
