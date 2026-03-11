@@ -22,7 +22,7 @@
         /* 列: D4=PA08, D5=PA09, D6=PB08 */
         col-gpios = <&porta  8 GPIO_PULL_UP>,
                     <&porta  9 GPIO_PULL_UP>,
-                    <&porta  20 GPIO_PULL_UP>;
+                    <&portb  8 GPIO_PULL_UP>;
 
         /* 必須：ダイオードの向き（配線に合わせて row2col / col2row を選択） */
         diode-direction = "row2col";
@@ -36,7 +36,7 @@
     /* もし単発の“直結GPIOキー”も使うなら（任意） */
     kscan1: special_kscan {
         compatible = "zmk,kscan-gpio-direct";
-        input-gpios = <&porta 21 GPIO_ACTIVE_LOW>;
+        input-gpios = <&portb 9 GPIO_ACTIVE_LOW>;
     };
 
     /* special_kscan を使うkeymapを別途用意したい場合は、
