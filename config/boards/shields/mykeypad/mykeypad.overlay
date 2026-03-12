@@ -14,15 +14,15 @@
         compatible = "zmk,kscan-gpio-matrix";
 
         /* 行: D0=PA02, D1=PA04, D2=PA10, D3=PA11 */
-        row-gpios = <&porta  2 0>,
-                    <&porta  4 0>,
-                    <&porta 10 0>,
-                    <&porta 11 0>;
+        row-gpios = <&porta  2 GPIO_PULL_UP>,
+                    <&porta  4 GPIO_PULL_UP>,
+                    <&porta 10 GPIO_PULL_UP>,
+                    <&porta 11 GPIO_PULL_UP>;
 
         /* 列: D4=PA08, D5=PA09, D6=PB08 */
-        col-gpios = <&porta  8 GPIO_PULL_UP>,
-                    <&porta  9 GPIO_PULL_UP>,
-                    <&portb  8 GPIO_PULL_UP>;
+        col-gpios = <&porta  8 0>,
+                    <&porta  9 0>,
+                    <&portb  8 0>;
 
         /* 必須：ダイオードの向き（配線に合わせて row2col / col2row を選択） */
         diode-direction = "col2row";
